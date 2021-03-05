@@ -37,7 +37,7 @@ export class HealthPlugin extends BasePlugin {
     };
 
     get events() {
-        return undefined;
+        return [];
     }
 
     private lastBlockReceivedAt: number;
