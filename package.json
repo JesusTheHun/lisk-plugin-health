@@ -1,0 +1,27 @@
+{
+  "name": "lisk-plugin-health",
+  "version": "1.0.0",
+  "description": "Lightweight plugin for Lisk health check",
+  "homepage": "https://github.com/JesusTheHun/lisk-plugin-health",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "lisk",
+    "plugin",
+    "health",
+    "sdk",
+    "blockchain"
+  ],
+  "author": "Jonathan MASSUCHETTI",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/node": "^12",
+    "lisk-sdk": "^5.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}
