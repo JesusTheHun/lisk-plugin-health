@@ -1,4 +1,9 @@
-import { BasePlugin } from 'lisk-sdk';
+import { BasePlugin, utils } from 'lisk-sdk';
+
+export interface HealthPluginOptions {
+    enable: boolean;
+    delayUntilUnhealthy: number;
+}
 
 export class HealthPlugin extends BasePlugin {
     static get alias() {
@@ -13,10 +18,7 @@ export class HealthPlugin extends BasePlugin {
         };
     };
 
-    options: {
-        enable: boolean;
-        delayUntilUnhealthy: number;
-    };
+    options: HealthPluginOptions;
 
     get defaults() {
         return {
@@ -44,10 +46,12 @@ export class HealthPlugin extends BasePlugin {
 
     get actions() {
         return {
-            lastBlock: () => this.lastBlockReceivedAt,
-            check: () => {
+            lastBlockTime: () => this.lastBlockReceivedAt,
+            check: (params: Omit<HealthPluginOptions, 'enable'>) => {
+                const localOptions = utils.objects.mergeDeep(this.options, params)
+
                 const diff = this.lastBlockReceivedAt - Date.now();
-                return diff > this.options.delayUntilUnhealthy ? 1 : 0
+                return diff > localOptions.delayUntilUnhealthy ? 1 : 0
             }
         }
     };
