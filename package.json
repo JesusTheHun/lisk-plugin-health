@@ -1,6 +1,6 @@
 {
   "name": "lisk-plugin-health",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight plugin for Lisk health check",
   "homepage": "https://github.com/JesusTheHun/lisk-plugin-health",
   "main": "dist/index.js",
