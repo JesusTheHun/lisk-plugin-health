@@ -22,8 +22,13 @@ app.registerPlugin(HealthPlugin);
 
 ## Usage
 To check the health of the app, just run.
-```bash
-lisk-core health:check
+```ts
+// Use the params as configured, see below
+const isHealthy = await this._client.invoke('health:check');
+// or set a custom delay (default is 12000)
+const isHealthy = await this._client.invoke('health:check', {
+  delayUntilUnhealthy: 15000,
+});
 ```
 It will return `0` if the app is healthy, `1` if there is an issue
 
