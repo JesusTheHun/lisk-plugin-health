@@ -2,9 +2,19 @@
 
 ![npm](https://img.shields.io/npm/v/lisk-plugin-health)
 
-## Getting started 
+## Installation
+
+```bash
+npm install lisk-plugin-health
+# or
+yarn add lisk-plugin-health
+```
+
+## Getting started
 
 ```js
+// src/application/index.js
+
 import { HealthPlugin } from 'lisk-plugin-health';
 
 app.registerPlugin(HealthPlugin);
@@ -24,6 +34,8 @@ The app is considered healthy if it registered a block recently. You can configu
 The unit is milliseconds.
 
 ```js
+// src/application/index.js
+
 const appConfig = utils.objects.mergeDeep({}, configDevnet, {
   plugins:  {
     health: {
