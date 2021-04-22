@@ -17,11 +17,11 @@
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {
-    "@types/node": "^12",
-    "lisk-sdk": "^5.0.3"
+  "peerDependencies": {
+    "lisk-sdk": "^5.0.4"
   },
   "devDependencies": {
-    "typescript": "^4.2.3"
+    "typescript": "3.8.3",
+    "@types/node": "^12"
   }
 }
