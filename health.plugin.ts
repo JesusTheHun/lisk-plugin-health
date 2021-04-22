@@ -47,7 +47,7 @@ export class HealthPlugin extends BasePlugin {
     get actions() {
         return {
             lastBlockTime: () => this.lastBlockReceivedAt,
-            check: (params: Omit<HealthPluginOptions, 'enable'>) => {
+            check: (params?: Record<keyof Omit<HealthPluginOptions, 'enable'>, unknown>) => {
                 const localOptions = utils.objects.mergeDeep(this.options, params)
 
                 const diff = this.lastBlockReceivedAt - Date.now();
