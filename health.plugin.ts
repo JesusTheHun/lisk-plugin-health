@@ -13,7 +13,7 @@ export class HealthPlugin extends BasePlugin {
     static get info(){
         return {
             author: 'Jonathan MASSUCHETTI',
-            version: '1.0.1',
+            version: '1.0.2',
             name: 'lisk-plugin-health',
         };
     };
