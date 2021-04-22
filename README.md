@@ -5,7 +5,7 @@
 ## Getting started 
 
 ```js
-import { HealthPlugin } from 'lisk-health-plugin';
+import { HealthPlugin } from 'lisk-plugin-health';
 
 app.registerPlugin(HealthPlugin);
 ```
