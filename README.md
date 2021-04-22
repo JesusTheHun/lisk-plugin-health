@@ -1,5 +1,7 @@
 ### Lisk Plugin Health 
 
+![npm](https://img.shields.io/npm/v/lisk-plugin-health)
+
 ## Getting started 
 
 ```js
