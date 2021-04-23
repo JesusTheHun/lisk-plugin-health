@@ -24,9 +24,9 @@ app.registerPlugin(HealthPlugin);
 To check the health of the app, just run.
 ```ts
 // Use the params as configured, see below
-const isHealthy = await this._client.invoke('health:check');
+const isHealthy = await this._client.invoke('health:isHealthy');
 // or set a custom delay (default is 12000)
-const isHealthy = await this._client.invoke('health:check', {
+const isHealthy = await this._client.invoke('health:isHealthy', {
   delayUntilUnhealthy: 15000,
 });
 ```

@@ -42,16 +42,18 @@ export class HealthPlugin extends BasePlugin {
         return [];
     }
 
-    private lastBlockReceivedAt: number;
+    private lastBlockReceivedAt: number = 0;
 
     get actions() {
+        const options = utils.objects.mergeDeep({}, this.defaults.default, this.options) as HealthPluginOptions;
+
         return {
             lastBlockTime: () => this.lastBlockReceivedAt,
-            check: (params?: Record<keyof Omit<HealthPluginOptions, 'enable'>, unknown>) => {
-                const localOptions = utils.objects.mergeDeep(this.options, params)
+            isHealthy: (params?: Record<keyof Omit<HealthPluginOptions, 'enable'>, unknown>) => {
+                const localOptions = utils.objects.mergeDeep({}, options, params)
 
-                const diff = this.lastBlockReceivedAt - Date.now();
-                return diff > localOptions.delayUntilUnhealthy ? 1 : 0
+                const diff = Date.now() - this.lastBlockReceivedAt;
+                return diff < localOptions.delayUntilUnhealthy
             }
         }
     };
@@ -63,7 +65,7 @@ export class HealthPlugin extends BasePlugin {
         }
 
         channel.subscribe('app:block:new', () => {
-            this.lastBlockReceivedAt= Date.now();
+            this.lastBlockReceivedAt = Date.now();
         });
     };
 
