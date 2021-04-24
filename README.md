@@ -44,7 +44,6 @@ The unit is milliseconds.
 const appConfig = utils.objects.mergeDeep({}, configDevnet, {
   plugins:  {
     health: {
-      enable: true,
       delayUntilUnhealthy: 15000 // default 12000
     }
   },

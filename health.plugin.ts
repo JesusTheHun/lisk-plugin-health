@@ -59,11 +59,6 @@ export class HealthPlugin extends BasePlugin {
     };
 
     async load(channel) {
-        // initialize plugin
-        if (!this.options.enable) {
-            return;
-        }
-
         channel.subscribe('app:block:new', () => {
             this.lastBlockReceivedAt = Date.now();
         });
